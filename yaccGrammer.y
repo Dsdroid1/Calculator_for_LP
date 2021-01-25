@@ -6,8 +6,10 @@ int yylex();
 #include<stdlib.h>
 #include<ctype.h>
 #include<math.h>
+#define YYSTYPE double
 %}
 
+%token FLOAT
 %token NUMBER
 %token LEFT_PAR RIGHT_PAR
 %token POW
@@ -26,13 +28,13 @@ line:   QUIT
         |
         addexpr END_EXP
         { 
-            printf("%d\n",$1);
+            printf("%lf\n",$1);
             //printf("Non recursive\n");
         }
         |
         line addexpr END_EXP
         {  
-            printf("%d\n",$2);
+            printf("%lf\n",$2);
             //printf("Recursive Expansion\n");
         }
         |
@@ -93,18 +95,18 @@ paranthesis:    LEFT_PAR addexpr RIGHT_PAR
                     $$ = $2;
                 }
                 |
-                integers
+                floats
                 {
                     $$ = $1;
                 }
                 ;
 
-integers:   NUMBER
+floats:     FLOAT
             {
                 $$ = $1;
             }
             |
-            MINUSTOKEN NUMBER
+            MINUSTOKEN FLOAT
             {
                 $$ = -$2;
             }
