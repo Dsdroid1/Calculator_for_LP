@@ -116,6 +116,18 @@ floats:     FLOAT
 
 int main(void)
 {
+    printf("Assignment 1-Language Processors,by BT18CSE046\n");
+    printf("Some info about this program\n");
+    printf("This is a calculator made using lex/yacc to parse an equation and print it's output\n");
+    printf("The supported operations are +,-,*,/,^(power) and the use of paranthesis\n");
+    printf("The precedence of operators is (),^,*==/,+==-\n");
+    printf("The datatype supported is double\n");
+    printf("Any numeric expression that has to be calculated should end with ';' as a delimiter\n");
+    printf("By choice,the power operator will be evaluated from right to left\n");
+    printf("All other operators go from left to right");
+    printf("To end this program,type 'exit' or 'quit'\n");
+    printf("With all this info,you are ready to use this calculator!\n");
+
     return yyparse();
 }
 
